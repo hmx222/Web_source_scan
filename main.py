@@ -24,6 +24,7 @@ time.sleep(20)
 
 for url in txt:
     get = main_function.Ping(url=url)  # 拿到网页源代码
+    print(get)
     geturl = sear.SearchEveryUrl(get)  # 对于网页源代码当中url的筛选(初次)
     geturl.insert(0,url) # 将输入的网站也添加到检测当中，因为第一代网站更加重要
     path = sear.SearchPath(get)

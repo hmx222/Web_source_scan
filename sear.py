@@ -44,6 +44,7 @@ def SearchEveryUrl(content):  # 更加强大的筛选
 
 
 def SearchOtherPa(content):
+    new_list=[]
     path = '"//?[A-Za-z0-9-\.]+/[A-Za-z0-9-\.]+"'  # 一级
     path2 = '"//?[A-Za-z0-9-\.]+/[A-Za-z0-9-]+/[A-Za-z0-9-\.]+"'  # 二级
     path3 = '"//?[A-Za-z0-9-\.]+/[A-Za-z0-9-]+/[A-Za-z0-9-]+/[A-Za-z0-9-\.]+"'  # 三级
@@ -53,7 +54,7 @@ def SearchOtherPa(content):
     list = [path, path2, path3, path4, path5, path6]
     for i in list:
         demo_list = re.findall(i, content)
-        demo_list.extend(demo_list)
+        new_list.extend(demo_list)
     return demo_list
 
 
@@ -63,4 +64,3 @@ def SearchGovern(url):
     if response:
         print("我们发现了政府网站，准备抛出异常")
         raise RuntimeError('政府网站--Error')
-
