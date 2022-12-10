@@ -38,7 +38,6 @@ for url in txt:
             path1 = sear.SearchPath(geturl1) # 对于path内容的搜索
             geturl2 = sear.SearchEveryUrl(geturl1) # 更加详细的url搜索
             pa = sear.SearchOtherPa(geturl1) # 对于路径的搜索
-            pa = i+pa
             path1.extend(geturl2) # 增加列表元素
             path1.extend(pa)
             if option == "N"or"n":
