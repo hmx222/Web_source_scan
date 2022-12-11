@@ -20,4 +20,3 @@ def Savefile(filename, content, head):  # 这里的head为url网站
         print("我们将新建一个文件：%s" % filename)
         f.write(head + "\n" + content + "\n\n")
         f.close()
-    print("文件写入完毕")
