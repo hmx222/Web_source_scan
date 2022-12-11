@@ -12,7 +12,6 @@ def Savefile(filename, content, head):  # 这里的head为url网站
     try:
         f = open(filename, "x", encoding='utf-8')  # 先打开一个文件
     except:
-        print("我们发现了一个您已经新建的文件：%s" % filename)
         f = open(filename, 'a', encoding='utf-8')
         f.write(head + "\n" + content + "\n\n")
         f.close()

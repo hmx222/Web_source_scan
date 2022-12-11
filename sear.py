@@ -19,22 +19,16 @@ def SearchEmail(content):
     return response
 
 
-def SearchPath(content):  # 对于路径的筛选
+def SearchPath(content):
+    new_list = []
     path = 'path:"(.*?)"'
-    response = re.findall(path, content)
-    return response
-
-
-def SearchHref(content):
     href = 'href="(.*?)"'
-    response = re.findall(href, content)
-    return response
-
-
-def SearchSrc(content):
     src = 'src="(.*?)"'
-    response = re.findall(src, content)
-    return response
+    list = [path,href,src]
+    for i in list:
+        demo_list = re.findall(i,content)
+        new_list.extend(demo_list)
+    return demo_list
 
 
 def SearchEveryUrl(content):  # 更加强大的筛选
@@ -45,12 +39,12 @@ def SearchEveryUrl(content):  # 更加强大的筛选
 
 def SearchOtherPa(content):
     new_list=[]
-    path = '"//?[A-Za-z0-9-\.]+/[A-Za-z0-9-\.]+"'  # 一级
-    path2 = '"//?[A-Za-z0-9-\.]+/[A-Za-z0-9-]+/[A-Za-z0-9-\.]+"'  # 二级
-    path3 = '"//?[A-Za-z0-9-\.]+/[A-Za-z0-9-]+/[A-Za-z0-9-]+/[A-Za-z0-9-\.]+"'  # 三级
-    path4 = '"//?[A-Za-z0-9-\.]+/[A-Za-z0-9-]+/[A-Za-z0-9-]+/[A-Za-z0-9-]+/[A-Za-z0-9-\.]+"'  # 四级
-    path5 = '"//?[A-Za-z0-9-\.]+/[A-Za-z0-9-]+/[A-Za-z0-9-]+/[A-Za-z0-9-]+/[A-Za-z0-9-]+/[A-Za-z0-9-\.]+"'  # 五级
-    path6 = '"//?[A-Za-z0-9-\.]+/[A-Za-z0-9-]+/[A-Za-z0-9-]+/[A-Za-z0-9-]+/[A-Za-z0-9-]+/[A-Za-z0-9-]+/[A-Za-z0-9-\.]+"'  # 六级
+    path = '"//?[A-Za-z0-9-\.]+/[A-Za-z0-9-\.#]+"'  # 一级
+    path2 = '"//?[A-Za-z0-9-\.]+/[A-Za-z0-9-]+/[A-Za-z0-9-\.#]+"'  # 二级
+    path3 = '"//?[A-Za-z0-9-\.]+/[A-Za-z0-9-]+/[A-Za-z0-9-]+/[A-Za-z0-9-\.#]+"'  # 三级
+    path4 = '"//?[A-Za-z0-9-\.]+/[A-Za-z0-9-]+/[A-Za-z0-9-]+/[A-Za-z0-9-]+/[A-Za-z0-9-\.#]+"'  # 四级
+    path5 = '"//?[A-Za-z0-9-\.]+/[A-Za-z0-9-]+/[A-Za-z0-9-]+/[A-Za-z0-9-]+/[A-Za-z0-9-]+/[A-Za-z0-9-\.#]+"'  # 五级
+    path6 = '"//?[A-Za-z0-9-\.]+/[A-Za-z0-9-]+/[A-Za-z0-9-]+/[A-Za-z0-9-]+/[A-Za-z0-9-]+/[A-Za-z0-9-]+/[A-Za-z0-9-\.#]+"'  # 六级
     list = [path, path2, path3, path4, path5, path6]
     for i in list:
         demo_list = re.findall(i, content)
