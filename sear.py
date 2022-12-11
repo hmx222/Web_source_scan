@@ -21,10 +21,11 @@ def SearchEmail(content):
 
 def SearchPath(content):
     new_list = []
+    annotation = '(<!-- .*? -->)'
     path = 'path:"(.*?)"'
     href = 'href="(.*?)"'
     src = 'src="(.*?)"'
-    list = [path,href,src]
+    list = [path,href,src,annotation]
     for i in list:
         demo_list = re.findall(i,content)
         new_list.extend(demo_list)
@@ -32,7 +33,7 @@ def SearchPath(content):
 
 
 def SearchEveryUrl(content):  # 更加强大的筛选
-    path = '(https?://.*?)["|\>]'
+    path = '(https?://.*?)["|\>|\']'
     response = re.findall(path, content)
     return response
 
@@ -58,3 +59,4 @@ def SearchGovern(url):
     if response:
         print("我们发现了政府网站，准备抛出异常")
         raise RuntimeError('政府网站--Error')
+
