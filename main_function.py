@@ -8,14 +8,15 @@ def Ping(url):
     return response
 
 
-def Savefile(filename, content, head):  # 这里的head为url网站
+def Savefile(filename, content):
     try:
         f = open(filename, "x", encoding='utf-8')  # 先打开一个文件
     except:
         f = open(filename, 'a', encoding='utf-8')
-        f.write(head + "\n" + content + "\n\n")
+        f.write(content + "\n\n")
         f.close()
     else:
         print("我们将新建一个文件：%s" % filename)
-        f.write(head + "\n" + content + "\n\n")
+        f.write(content + "\n\n")
         f.close()
+
