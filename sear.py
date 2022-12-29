@@ -2,7 +2,7 @@ import re
 
 
 def SearchUrl(context):  # 对于网站url的筛选
-    ex = '(https?://.*?(?:\.html|\.css|\.js|\.action|\.do|\.json))'  # 对于网站类型的查找
+    ex = '(https?://.*?\.[php|asp|aspx|jsp|json|action|html|js|txt|xml])'  # 对于网站类型的查找
     response = re.findall(ex, context)
     return response
 

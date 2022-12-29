@@ -13,10 +13,10 @@ def Savefile(filename, content):
         f = open(filename, "x", encoding='utf-8')  # 先打开一个文件
     except:
         f = open(filename, 'a', encoding='utf-8')
-        f.write(content + "\n\n")
+        f.write(content + "\n")
         f.close()
     else:
         print("我们将新建一个文件：%s" % filename)
-        f.write(content + "\n\n")
+        f.write(content + "\n")
         f.close()
 
