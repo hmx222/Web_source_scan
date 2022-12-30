@@ -24,15 +24,13 @@ for line in f:
 print("我们将对下面的网站开始爬取:")
 for i in txt:
     print(i)
-print("请确认。20秒后我们将开始执行脚本")
-time.sleep(1)
 
 for url in txt:
     get = main_function.Ping(url=url)  # 拿到网页源代码
     geturl = sear.SearchEveryUrl(get)  # 对于网页源代码当中url的筛选(初次)
     geturl.insert(0,url) # 将输入的网站也添加到检测当中，因为第一代网站更加重要
     path = sear.SearchPath(get)
-    option = input("是否需要进行深度扫描(N/y)：")
+    option = input("准备好了吗？")
     for i in geturl:
         try:
             sear.SearchGovern(i) # 判断是否为政府网站，是的话主动抛出异常
@@ -42,7 +40,7 @@ for url in txt:
         else:
             path1 = sear.SearchPath(geturl1) # 对于path内容的搜索
             All_list.extend(path1)
-            geturl2 = sear.SearchEveryUrl(geturl1) # 更加详细的url搜索
+            geturl2 = sear.SearchUrl(geturl1) # 更加详细的url搜索
             All_list.extend(geturl2)
             pa = sear.SearchOtherPa(geturl1) # 对于路径的搜索
             All_list.extend(pa)
@@ -72,7 +70,6 @@ for url in txt:
             urls = []  # url
             path = []  # 路径
             annoation = []  # 注释
-            if option == "N" or "n":
-                break
+
 
 print("愿中国青年都摆脱冷气,只是向上走,不必听自暴自弃者流的话。能做事的做事,能发声的发声。有一分热,发一分光。就令萤火一般,也可以在黑暗里发一点光,不必等候炬火。")
